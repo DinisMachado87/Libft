@@ -12,53 +12,75 @@
 
 #include <stdio.h>
 #include <stddef.h>
+#include <ctype.h>
 
-int	ft_isalpha(char *str);
+int ft_isalpha(int c);
+int	ft_isdigit(int c);
+int	ft_isalnum(int c);
+int	ft_isascii(int c);
+int	ft_isprint(int c);
+
+struct TestChar
+{
+	char *name;
+	int c;
+};
 
 struct TestString
 {
-	char	*label;
-	char	*value;
+	char *name;
+	char *str;
 };
 
-void	test_function(char *label, char *value, int (*test_func)(char *))
+void	charTests(int (*function)(int), char *funcName, int (*original_function)(int), char *original_funcName)
 {
-	int	result;
-
-	result = test_func(value);
-	printf("%d -> %s\n", result, label);
+	int i_t_char;
+	struct TestChar test_char[] =
+	{
+		{"alphabetical", 'a'},
+		{"numerical", '1'},
+		{"space", ' '},
+		{"null", '\n'},
+		{"non-ascii", 200},
+		{"invisible printable under 40", 34},
+	};
+	i_t_char = 0;
+	while (i_t_char < 6)
+	{
+		printf("%d: ", function(test_char[i_t_char].c));
+		printf("%s ", funcName);
+		printf("%s\n", test_char[i_t_char].name);
+		printf("%d: ", original_function(test_char[i_t_char].c));
+		printf("%s ", original_funcName);
+		printf("%s\n", test_char[i_t_char].name);
+		printf("-----\n");
+		i_t_char++;
+	}
+	printf("\n\n");
 }
 
-int	main(void)
+/*
+void	strTests(void)
 {
-	struct	TestString test_strings[] =
-	{
-		{ "alphanumeric", "a8a7d7fg0g9g51n3m4" },
-		{ "alphabetical", "asdfghkjlz" },
-		{ "numerical", "1234567890"},
-		{ "empty", "" },
-		{ "space", " " },
-		{ "null", "\n" },
+	struct TestString test_string[] =
+	{	
+		{"alphanumeric", "a8a7d7fg0g9g51n3m4"},
+		{"alphabetical", "asdfghkjlz"},
+		{"numerical", "1234567890"},
+		{"empty", ""},
+		{"space", " "},
+		{"null", "\n"},
 	};
-	int	(*test_functions[])(char *) = {ft_isalpha};
-	const char *test_function_names[] = { "ft_isalpha" };
-	size_t	total_strs = sizeof(test_strings) / sizeof(test_strings[0]);
-	size_t	total_funcs = sizeof(test_functions) / sizeof(test_functions[0]);
-	size_t	i_function;
-	size_t	i_str;
+}
+*/
 
-	i_function = 0;
-	while (i_function < total_funcs)
-	{
-		printf("//: %s\n", test_function_names[i_function]);
-		i_str = 0;
-		while (i_str < total_strs)
-		{
-			test_function(test_strings[i_str].label, test_strings[i_str].value, test_functions[i_function]);
-			i_str++;
-		}
-		printf("\n");
-		i_function++;
-	}
+int main(void)
+{
+	charTests(ft_isdigit, "ft_isdigit", isdigit, "isdigit");
+	charTests(ft_isalpha, "ft_isalpha", isalpha, "isalpha");
+	charTests(ft_isalnum, "ft_isalnum", isalnum, "isalnum");
+	charTests(ft_isascii, "ft_isascii", isascii, "isascii");
+	charTests(ft_isprint, "ft_isprint", isprint, "isprint");
 	return (0);
 }
+
