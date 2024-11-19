@@ -6,26 +6,13 @@
 /*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 21:56:07 by dimachad          #+#    #+#             */
-/*   Updated: 2024/11/19 00:47:40 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/11/19 18:37:52 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stddef.h>
-#include <ctype.h>
-#include <string.h>
+#include "libft.h"
 
-int 	ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-size_t	ft_strlen(const char *str);
-void	*ft_memset(void *b, int c, size_t len);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-void	*ft_memmove(void *dest, const void *src, size_t n);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
 struct	TestChar
 {
@@ -169,25 +156,15 @@ void	memcpyTests(void *(*ft_function)(void *, const void *, size_t),char *ft_nam
 
 void	strcpyTests()
 {
-	struct TestString test_string[] =
-	{	
-		{"alphanumeric", "a8a7d7fg0g9g51n3m4"},
-		{"alphabetical", "asdfghkjlz"},
-		{"numerical", "1234567890"},
-		{"empty", ""},
-		{"space", " "},
-		{"null", "\n"},
-	};
-	int	i;
-
-	i = 1;
+	char	dst[10];
+	char	*src = "glamourous";
 	printf("-----\nstrlcpy\n-----\n");
-	while(i < 6)
-		{
-			ft_strlcpy(test_string[0].str, test_string[i].str, strlen(test_string[i].str));
-			i++;
-		}
-	printf("\n-----\n\n");
+	printf("%zu - %s \n\n\n", ft_strlcpy(dst, src, 10), dst);
+
+	char	dst2[50] = "hi, ";
+	char	*src2 = "glamourous";
+	printf("-----\nstrlcat\n-----\n");
+	printf("%zu - %s \n\n", ft_strlcat(dst2, src2, 20), dst2);
 }
 
 int	main(void)
@@ -205,7 +182,7 @@ int	main(void)
 	bzeroTests(ft_bzero, "ft_bzero", bzero, "bzero");
 	memcpyTests(ft_memcpy, "ft_memcpy", memcpy, "memcpy");
 	memcpyTests(ft_memmove, "ft_memmove", memmove, "memmove");
-	strcpyTests();	
+	strcpyTests();
 	return (0);
 }
 
