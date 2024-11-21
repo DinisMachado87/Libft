@@ -6,7 +6,7 @@
 /*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 21:56:07 by dimachad          #+#    #+#             */
-/*   Updated: 2024/11/19 18:37:52 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/11/21 15:02:19 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,11 +178,16 @@ int	main(void)
 	strTests(ft_strlen, "ft_strlen", strlen, "strlen");
 	printf("-----\nbuffer tests\n-----\n\n");
 	memsetTests(ft_memset, "ft_memset", memset, "memset");
-	printf("-----\nbzero tests\n-----\n-----\n");
+	printf("-----\nbzero tests\n-----\n-----\n\n");
 	bzeroTests(ft_bzero, "ft_bzero", bzero, "bzero");
 	memcpyTests(ft_memcpy, "ft_memcpy", memcpy, "memcpy");
 	memcpyTests(ft_memmove, "ft_memmove", memmove, "memmove");
 	strcpyTests();
+	printf("-----\nbzero tests\n-----\n-----\n\n");
+	printf("%c: ft_toupper // %c: toupper\n", ft_toupper('a'), toupper('a'));
+	printf("%c: ft_toupper // %c: toupper\n", ft_toupper('z'), toupper('z'));
+	printf("%c: ft_toupper // %c: toupper\n", ft_toupper('a' - 1), toupper('a' - 1));
+	printf("%c: ft_toupper // %c: toupper\n", ft_toupper('z' + 1), toupper('z' + 1));
 	return (0);
 }
 
