@@ -6,7 +6,7 @@
 /*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 21:56:07 by dimachad          #+#    #+#             */
-/*   Updated: 2024/11/21 15:02:19 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/11/23 00:24:42 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,6 @@ void	bzeroTests(void (*function)(void *, size_t), char *funcName, void (*origina
 	print_buffer((const char *)ft_buffer, 10);
 	printf("%s: ", original_funcName);
 	print_buffer((const char *)buffer, 10);
-	printf("\n");
 }
 
 void	memcpyTests(void *(*ft_function)(void *, const void *, size_t),char *ft_name, void *(*function)(void *, const void *, size_t), char *name)
@@ -151,7 +150,6 @@ void	memcpyTests(void *(*ft_function)(void *, const void *, size_t),char *ft_nam
 	print_buffer((const char *)ft_buffer, 10);
 	printf("%s: ", name);
 	print_buffer((const char *)buffer, 10);
-	printf("\n-----\n\n");
 }
 
 void	strcpyTests()
@@ -159,12 +157,85 @@ void	strcpyTests()
 	char	dst[10];
 	char	*src = "glamourous";
 	printf("-----\nstrlcpy\n-----\n");
-	printf("%zu - %s \n\n\n", ft_strlcpy(dst, src, 10), dst);
+	printf("%zu - %s \n", ft_strlcpy(dst, src, 10), dst);
 
 	char	dst2[50] = "hi, ";
 	char	*src2 = "glamourous";
 	printf("-----\nstrlcat\n-----\n");
-	printf("%zu - %s \n\n", ft_strlcat(dst2, src2, 20), dst2);
+	printf("%zu - %s \n", ft_strlcat(dst2, src2, 20), dst2);
+}
+
+void	caseTests(void)
+{
+	printf("-----\nCase tests\n-----\n");
+	printf("%c: ft_toupper // %c: toupper\n", ft_toupper('a'), toupper('a'));
+	printf("%c: ft_toupper // %c: toupper\n", ft_toupper('z'), toupper('z'));
+	printf("%c: ft_toupper // %c: toupper\n", ft_toupper('a' - 1), toupper('a' - 1));
+	printf("%c: ft_toupper // %c: toupper\n", ft_toupper('z' + 1), toupper('z' + 1));
+	printf("%c: ft_tolower // %c: tolower\n", ft_tolower('A'), tolower('A'));
+	printf("%c: ft_tolower // %c: tolower\n", ft_tolower('Z'), tolower('Z'));
+	printf("%c: ft_tolower // %c: tolower\n", ft_tolower('A' - 1), tolower('A' - 1));
+	printf("%c: ft_tolower // %c: tolower\n", ft_tolower('Z' + 1), tolower('Z' + 1));
+}
+
+void	stringFindTests(void)
+{
+	int i_t_str;
+	struct TestString test_string[] =
+	{	
+		{"alphanumeric", "a8a7d7fg0g9g51n3m4"},
+		{"alphabetical", "asdfghkjlz"},
+		{"numerical", "1234567890"},
+		{"empty", ""},
+		{"space", " "},
+		{"null", "\n"},
+	};
+	int		i_t_char;
+	struct	TestChar test_char[] =
+	{
+		{"alphabetical", 'a'},
+		{"numerical", '1'},
+		{"space", ' '},
+		{"new line", '\n'},
+		{"non-ascii", 200},
+		{"invisible printable under 40", 34},
+	};
+
+	i_t_str = 0;
+
+	printf("-----\nCase tests\n-----\n");
+	while (i_t_str < 6)
+	{
+		printf("-----\n// in '\%s' \n-----\n", test_string[i_t_str].str);
+		i_t_char = 0;
+		while (i_t_char < 6)
+		{
+			printf("// find '%s' >> ", test_char[i_t_char].name);
+			printf("%s: ft_strchr", ft_strchr(test_string[i_t_str].str, test_char[i_t_char].c));
+			printf(" // %s: strchr\n", strchr(test_string[i_t_str].str, test_char[i_t_char].c));
+			i_t_char++;
+		}
+	i_t_str++;
+	}
+}
+
+void	strncmpTest()
+{
+	int i_t_str;
+	struct TestString test_string[] =
+	{	
+		{"alphabetical", "asdfghkjlz"},
+		{"alphanumeric", "a8a7d7fg0g9g51n3m4"},
+		{"numerical", "123450"},
+		{"empty", ""},
+		{"space", " "},
+		{"null", "\n"},
+	i_t_str = 1;
+	while (i_t_str < 6)
+	{
+		fn_strncmp(test_string[0].str, test_string[i_t_str].str, 8);
+		i_t_str++;
+	}
 }
 
 int	main(void)
@@ -174,20 +245,18 @@ int	main(void)
 	charTests(ft_isalnum, "ft_isalnum", isalnum, "isalnum");
 	charTests(ft_isascii, "ft_isascii", isascii, "isascii");
 	charTests(ft_isprint, "ft_isprint", isprint, "isprint");
-	printf("-----\nstr tests\n-----\n\n");
+	printf("-----\nstr tests\n-----\n");
 	strTests(ft_strlen, "ft_strlen", strlen, "strlen");
-	printf("-----\nbuffer tests\n-----\n\n");
+	printf("-----\nbuffer tests\n-----\n");
 	memsetTests(ft_memset, "ft_memset", memset, "memset");
-	printf("-----\nbzero tests\n-----\n-----\n\n");
+	printf("-----\nbzero tests\n-----\n");
 	bzeroTests(ft_bzero, "ft_bzero", bzero, "bzero");
 	memcpyTests(ft_memcpy, "ft_memcpy", memcpy, "memcpy");
 	memcpyTests(ft_memmove, "ft_memmove", memmove, "memmove");
 	strcpyTests();
-	printf("-----\nbzero tests\n-----\n-----\n\n");
-	printf("%c: ft_toupper // %c: toupper\n", ft_toupper('a'), toupper('a'));
-	printf("%c: ft_toupper // %c: toupper\n", ft_toupper('z'), toupper('z'));
-	printf("%c: ft_toupper // %c: toupper\n", ft_toupper('a' - 1), toupper('a' - 1));
-	printf("%c: ft_toupper // %c: toupper\n", ft_toupper('z' + 1), toupper('z' + 1));
+	caseTests();
+	stringFindTests();
+	fn_strncmp;
 	return (0);
 }
 

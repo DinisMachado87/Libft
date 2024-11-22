@@ -6,12 +6,12 @@
 /*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 17:51:39 by dimachad          #+#    #+#             */
-/*   Updated: 2024/11/19 18:05:37 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/11/23 00:32:51 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
-# define LIBFT_H
+#define LIBFT_H
 
 #include <stdio.h>
 #include <stddef.h>
@@ -29,5 +29,9 @@ void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
+char 	*ft_strchr(const char *s, int c);
+int		fn_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif
