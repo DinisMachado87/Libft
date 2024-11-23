@@ -12,8 +12,6 @@
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size);
-
 struct	TestChar
 {
 	char	*name;
@@ -230,10 +228,13 @@ void	strncmpTest()
 		{"empty", ""},
 		{"space", " "},
 		{"null", "\n"},
+	};
 	i_t_str = 1;
+	printf("-----\nstrncmp tests\n-----\n");
 	while (i_t_str < 6)
 	{
-		fn_strncmp(test_string[0].str, test_string[i_t_str].str, 8);
+		printf("%d: fn_strncmp\n", fn_strncmp(test_string[0].str, test_string[i_t_str].str, 8));
+		printf("%d: strncmp\n", strncmp(test_string[0].str, test_string[i_t_str].str, 8));
 		i_t_str++;
 	}
 }
@@ -256,7 +257,7 @@ int	main(void)
 	strcpyTests();
 	caseTests();
 	stringFindTests();
-	fn_strncmp;
+	strncmpTest();
 	return (0);
 }
 

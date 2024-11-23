@@ -14,10 +14,14 @@
 
 int	fn_strncmp(const char *s1, const char *s2, size_t n)
 {
-    unsigned char	i_str;
+    size_t	i_str;
 
     i_str = 0;
-    while (s1[i_str] && s2[i_str] && i_str < n)
+    if (!s1[i_str])
+		return (s2[i_str]);	
+    if (!s2[i_str])
+		return (s1[i_str]);	
+	while (s1[i_str] && s2[i_str] && i_str < n)
     {
         if (s1[i_str] != s2[i_str])
             return (s1[i_str] - s2[i_str]);
