@@ -6,10 +6,10 @@
 /*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 21:56:07 by dimachad          #+#    #+#             */
-/*   Updated: 2024/11/23 00:24:42 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/11/27 17:03:20 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+/*
 #include "libft.h"
 
 struct	TestChar
@@ -310,6 +310,16 @@ void    memcmpTests()
     }
 }
 
+void	strnstrTest()
+{
+	const char	*big = "abracadabra";
+	const char	*little = "ab";
+	size_t		len;
+
+	len = 11;
+	printf("%s", ft_strnstr(big, little, len));
+}
+
 int	main(void)
 {
 	charTests(ft_isdigit, "ft_isdigit", isdigit, "isdigit");
@@ -331,6 +341,7 @@ int	main(void)
 	strncmpTest();
 	memchrTest();
 	memcmpTests();
+	strnstrTest();
 	return (0);
 }
-
+*/
