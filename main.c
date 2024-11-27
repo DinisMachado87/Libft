@@ -83,6 +83,11 @@ void	print_buffer(const char *buffer, size_t size)
 {
 	size_t	i;
 
+	if (!buffer)
+		{
+			printf("(null)");
+			return;
+		}
 	i = 0;
 	while (size--)
 	{
@@ -200,7 +205,6 @@ void	stringFindTests(void)
 	};
 
 	i_t_str = 0;
-
 	printf("-----\nCase tests\n-----\n");
 	while (i_t_str < 6)
 	{
@@ -233,10 +237,77 @@ void	strncmpTest()
 	printf("-----\nstrncmp tests\n-----\n");
 	while (i_t_str < 6)
 	{
-		printf("%d: fn_strncmp\n", fn_strncmp(test_string[0].str, test_string[i_t_str].str, 8));
+		printf("%d: ft_strncmp\n", ft_strncmp(test_string[0].str, test_string[i_t_str].str, 8));
 		printf("%d: strncmp\n", strncmp(test_string[0].str, test_string[i_t_str].str, 8));
 		i_t_str++;
 	}
+}
+
+void	memchrTest()
+{
+	int i_t_str;
+	struct TestString test_string[] =
+	{	
+		{"alphabetical", "asdfghkjlz"},
+		{"alphanumeric", "a8a7d7fg0g9g51n3m4"},
+		{"numerical", "123450"},
+		{"empty", ""},
+		{"space", " "},
+		{"null", "\n"},
+	};
+	int		i_t_chr;
+	struct	TestChar test_char[] =
+	{
+		{"alphabetical", 'a'},
+		{"numerical", '1'},
+		{"space", ' '},
+		{"new line", '\n'},
+		{"non-ascii", 200},
+		{"invisible printable under 40", 34},
+	};
+	void	*ft_ptr;
+	void	*ptr;
+
+	i_t_str = 0;
+	printf("-----\nmemchr tests\n-----\n");
+	while (i_t_str < 6)
+	{
+		i_t_chr = 0;
+		while (i_t_chr < 6)
+		{
+			ft_ptr = ft_memchr(test_string[i_t_str].str, test_char[i_t_chr].c, 8);
+			ptr = memchr(test_string[i_t_str].str, test_char[i_t_chr].c, 8);
+			print_buffer((const char *)ft_ptr, 8);
+			printf(" : ft_memchr\n");
+			print_buffer((const char *)ptr, 8);
+			printf(" : memchr\n");
+			i_t_chr++;
+		}
+		i_t_str++;
+	}
+}
+
+void    memcmpTests()
+{
+    struct TestString test_string[] =
+    {
+        {"alphabetical", "asdfghkjlz"},
+        {"alphanumeric", "a8a7d7fg0g9g51n3m4"},
+        {"numerical", "123450"},
+        {"empty", ""},
+        {"space", " "},
+        {"null", "\n"},
+    };
+    int i_str;
+
+    i_str = 1;
+    printf("-----\nmemcmp tests\n-----\n");
+    while (i_str < 6)
+    {
+        printf("%d: ft_memcmp\n", ft_memcmp(test_string[0].str, test_string[i_str].str, 8));
+        printf("%d: memcmp\n", memcmp(test_string[0].str, test_string[i_str].str, 8));
+        i_str++;
+    }
 }
 
 int	main(void)
@@ -258,6 +329,8 @@ int	main(void)
 	caseTests();
 	stringFindTests();
 	strncmpTest();
+	memchrTest();
+	memcmpTests();
 	return (0);
 }
 
