@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/28 20:35:20 by dimachad          #+#    #+#             */
+/*   Updated: 2024/11/28 20:52:24 by dimachad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	i_mem;
+	size_t			i_mem;
 	unsigned char	*str1;
 	unsigned char	*str2;
 

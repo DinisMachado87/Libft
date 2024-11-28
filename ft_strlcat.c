@@ -6,7 +6,7 @@
 /*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:36:56 by dimachad          #+#    #+#             */
-/*   Updated: 2024/11/19 17:06:24 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/11/28 20:56:20 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[i_src + i_dst] = '\0';
 	return (src_len + i_dst);
 }
-

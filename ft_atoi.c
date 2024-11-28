@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 20:45:01 by dimachad          #+#    #+#             */
-/*   Updated: 2024/11/28 20:54:38 by dimachad         ###   ########.fr       */
+/*   Created: 2024/11/28 20:29:44 by dimachad          #+#    #+#             */
+/*   Updated: 2024/11/28 22:47:26 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void	*ft_memmove(void *dest, const void *src, size_t n)
+int	ft_atoi(const char *nptr)
 {
-	unsigned char	*ptr_dest;
-	unsigned char	*ptr_src;
+	int	minus;
+	int result;
 
-	ptr_dest = (unsigned char *)dest;
-	ptr_src = (unsigned char *)src;
-	while (n--)
+	minus = 1;
+	result = 0;
+	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
+		nptr++;
+	if (*nptr == '-')
+		minus = -1;
+	if (*nptr == '+' || *nptr == '-')
+		nptr++;
+	while (*nptr >= '0' && *nptr <= '9')
 	{
-		if (dest < src)
-		{
-			ptr_dest = ptr_src;
-			ptr_dest++;
-			ptr_src++;
-		}
-		if (dest > src)
-			ptr_dest[n] = ptr_src[n];
+		result = result * 10 + (*nptr - '0');
+		nptr++;
 	}
-	return (dest);
+	return (minus * result);
 }

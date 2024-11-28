@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: dimachad <dimachad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:01:57 by dimachad          #+#    #+#             */
-/*   Updated: 2024/11/27 19:34:18 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/11/28 20:33:56 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strnstr(const char *big, const char *needle, size_t len)
+char	*ft_strnstr(const char *big, const char *needle, size_t len)
 {
 	size_t	i_char;
 	size_t	i_needle;

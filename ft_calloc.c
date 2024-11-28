@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 20:45:01 by dimachad          #+#    #+#             */
-/*   Updated: 2024/11/28 20:54:38 by dimachad         ###   ########.fr       */
+/*   Created: 2024/11/28 22:46:59 by dimachad          #+#    #+#             */
+/*   Updated: 2024/11/29 00:45:09 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include <stdlib.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_calloc(size_t memcount, size_t size)
 {
-	unsigned char	*ptr_dest;
-	unsigned char	*ptr_src;
+	unsigned char	*arr;
+	size_t			i_mem;
 
-	ptr_dest = (unsigned char *)dest;
-	ptr_src = (unsigned char *)src;
-	while (n--)
+	if (size == 0 || memcount == 0)
+		return (NULL);
+	i_mem = 0;
+	arr = malloc(memcount * size);
+	if (!arr)
+		return (NULL);
+	while (i_mem < memcount * size)
 	{
-		if (dest < src)
-		{
-			ptr_dest = ptr_src;
-			ptr_dest++;
-			ptr_src++;
-		}
-		if (dest > src)
-			ptr_dest[n] = ptr_src[n];
+		arr[i_mem] = '0';
+		i_mem++;
 	}
-	return (dest);
+	return (arr);
 }
