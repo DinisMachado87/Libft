@@ -6,7 +6,7 @@
 #    By: dimachad <dimachad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 20:55:36 by dimachad          #+#    #+#              #
-#    Updated: 2024/11/28 23:53:11 by dimachad         ###   ########.fr        #
+#    Updated: 2024/12/02 23:06:07 by dimachad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,8 @@ SRC = main.c \
 	ft_memchr.c \
 	ft_atoi.c \
 	ft_calloc.c \
+	ft_substr.c \
+	ft_strdup.c \
 
 OBJS := $(SRC:%.c=%.o)
 
