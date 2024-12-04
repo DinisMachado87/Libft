@@ -6,7 +6,7 @@
 /*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 21:40:10 by dimachad          #+#    #+#             */
-/*   Updated: 2024/12/02 23:37:26 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/12/03 23:06:07 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,17 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i_str;
 	size_t	i_new_s;
+	size_t	limiter;
 	char	*new_s;
-
+	
+	
 	if (!s)
 		return (NULL);
-	if (start >= ft_strlen(s))
+	if (start > ft_strlen(s))
 		return (strdup(""));
+	limiter = ft_strlen(s) - start; 
+	if (len > limiter)
+		len = limiter;
 	new_s = (char *)malloc((sizeof (char)) * (len + 1));
 	if (!new_s)
 		return (NULL);
