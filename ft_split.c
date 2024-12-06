@@ -12,21 +12,27 @@
 
 #include "libft.h"
 
-static void		extract_left(char **s, char **word_arr, size_t i_arr, char splitter)
+static char		*extract_word(char *str, char splitter)
 {
-	size_t	i_str;
 	char	*word;
+	size_t	word_len;
+	size_t	i_word;
 
-	i_str = 0;
-	while ((*s)[i_str] && ((*s)[i_str] != splitter))
-		i_str++;
-	word = (char *)malloc((i_str + 1) * sizeof(char));
+	word_len  = 0;
+	while (str[word_len] && str[word_len] != splitter)
+		word_len++;
+	word = (char *)malloc(word_len * sizeof(char));
 	if (!word)
-		return;
-	ft_strlcpy(word, *s, i_str + 1);
-	word_arr[i_arr] = word;
-	*s += i_str + 1;
+		return (NULL);
+	i_word = 0;
+	while (i_word <= word_len)
+	{
+		word[i_word] = str[i_word];
+		i_word++;
+	}
+	return (word);
 }
+
 
 static size_t	count_splitters(char *s, char splitter)
 {
