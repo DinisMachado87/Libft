@@ -28,6 +28,7 @@ static size_t	count_words(const char *str, char splitter)
 	}
 	return (num_words);
 }
+
 static char		*extract_word(const char *str, char splitter)
 {
 	char	*word;
@@ -50,24 +51,14 @@ static char		*extract_word(const char *str, char splitter)
 	return (word);
 }
 
-/*
-static char *store_word_in_arr(const char *str, char splitter, char **word_arr, size_t i_arr)
+static void free_word_arr(char **word_arr, size_t i_arr)
 {
-	if (str)
+	while (i_arr > 0)
 	{
-		word_arr[i_arr] = extract_word(str, splitter);
-		if (!word_arr[i_arr])
-		{	
-			while (i_arr >= 0)
-			{
-				free(word_arr[i_arr]);
-				i_arr--;
-			}
-			free(word_arr);
-		}
-		return (NULL);
+		free(word_arr[i_arr - 1]);
+		i_arr--;
 	}
-	return (word_arr[i_arr]);
+	free(word_arr);
 }
 
 char	**ft_split(const char *str, char splitter)
@@ -76,25 +67,35 @@ char	**ft_split(const char *str, char splitter)
 	size_t	arr_size;
 	size_t	i_arr;
 
-	arr_size = 1 + count_words(str, splitter);
-	word_arr = (char **)malloc(arr_size * sizeof(char *));
+	if (!str)
+		return (NULL);
+	arr_size = count_words(str, splitter);
+	word_arr = (char **)malloc((arr_size + 1) * sizeof(char *));
 	if (!word_arr)
 		return (NULL);
 	i_arr = 0;
-	while (i_arr < arr_size - 1)
+	while (*str && i_arr < arr_size)
 	{
 		while (*str && *str == splitter)
 			str++;
-		word_arr[i_arr] = store_word_in_arr(str, splitter, word_arr, i_arr);
-		while (*str != splitter)
-			str++;
+		if (*str)
+		{
+			word_arr[i_arr] = extract_word(str, splitter);
+			if (!word_arr[i_arr])
+			{
+				free_word_arr(word_arr, i_arr);
+				return (NULL);
+			}
+		}
 		i_arr++;
+		while (*str && *str != splitter)
+			str++;
 	}
 	word_arr[i_arr] = NULL;
-	return(word_arr);
+	return (word_arr);
 }
-*/
 
+/*
 #include <stdio.h>
 
 int		main()
@@ -103,4 +104,4 @@ int		main()
 	printf("extract_word: %s\n", extract_word("sddjlkksdflsdkdjlsd", 'k'));
 	return (0);
 }
-
+*/
