@@ -6,7 +6,7 @@
 #    By: dimachad <dimachad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 20:55:36 by dimachad          #+#    #+#              #
-#    Updated: 2024/12/13 16:41:21 by dimachad         ###   ########.fr        #
+#    Updated: 2024/12/13 20:37:03 by dimachad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC = main.c \
     ft_toupper.c \
     ft_tolower.c \
     ft_strchr.c \
+    ft_strrchr.c \
     ft_strncmp.c \
     ft_memcmp.c \
     ft_strnstr.c \
@@ -41,6 +42,10 @@ SRC = main.c \
 	ft_itoa.c \
 	ft_strmapi.c \
 	ft_striteri.c \
+	ft_putchar_fd.c \
+	ft_putstr_fd.c \
+	ft_putendl_fd.c \
+	ft_putnbr_fd.c \
 
 OBJS := $(SRC:%.c=%.o)
 
