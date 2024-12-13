@@ -6,7 +6,7 @@
 #    By: dimachad <dimachad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 20:55:36 by dimachad          #+#    #+#              #
-#    Updated: 2024/12/05 01:49:30 by dimachad         ###   ########.fr        #
+#    Updated: 2024/12/13 16:41:21 by dimachad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,8 @@ SRC = main.c \
 	ft_strtrim.c \
 	ft_split.c \
 	ft_itoa.c \
+	ft_strmapi.c \
+	ft_striteri.c \
 
 OBJS := $(SRC:%.c=%.o)
 
