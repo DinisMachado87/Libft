@@ -29,7 +29,7 @@ static size_t	count_words(const char *str, char splitter)
 	return (num_words);
 }
 
-static char		*extract_word(const char *str, char splitter)
+static char	*extract_word(const char *str, char splitter)
 {
 	char	*word;
 	size_t	word_len;
@@ -51,7 +51,7 @@ static char		*extract_word(const char *str, char splitter)
 	return (word);
 }
 
-static void free_word_arr(char **word_arr, size_t i_arr)
+static void	free_word_arr(char **word_arr, size_t i_arr)
 {
 	while (i_arr > 0)
 	{
@@ -84,7 +84,6 @@ char	**ft_split(const char *str, char splitter)
 			if (!word_arr[i_arr])
 			{
 				free_word_arr(word_arr, i_arr);
-				return (NULL);
 			}
 		}
 		i_arr++;
