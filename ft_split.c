@@ -6,7 +6,7 @@
 /*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 23:23:05 by dimachad          #+#    #+#             */
-/*   Updated: 2024/12/16 14:32:15 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/12/16 16:33:19 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,11 @@ static void	free_word_arr(char **word_arr, size_t i_arr)
 	free(word_arr);
 }
 
-char	**ft_split(const char *str, char splitter)
+int	build_word_array(
+	const char *str, size_t arr_size, char splitter, char **word_arr)
 {
-	char	**word_arr;
-	size_t	arr_size;
 	size_t	i_arr;
 
-	arr_size = count_words(str, splitter);
-	word_arr = (char **)malloc((arr_size + 1) * sizeof(char *));
-	if (!word_arr)
-		return (NULL);
 	i_arr = 0;
 	while (*str && i_arr < arr_size)
 	{
@@ -80,13 +75,30 @@ char	**ft_split(const char *str, char splitter)
 		{
 			word_arr[i_arr] = extract_word(str, splitter);
 			if (!word_arr[i_arr])
+			{
 				free_word_arr(word_arr, i_arr);
+				return (1);
+			}
 		}
 		i_arr++;
 		while (*str && *str != splitter)
 			str++;
 	}
 	word_arr[i_arr] = NULL;
+	return (0);
+}
+
+char	**ft_split(const char *str, char splitter)
+{
+	char	**word_arr;
+	size_t	arr_size;
+
+	arr_size = count_words(str, splitter);
+	word_arr = (char **)malloc((arr_size + 1) * sizeof(char *));
+	if (!word_arr)
+		return (NULL);
+	if (build_word_array(str, arr_size, splitter, word_arr))
+		return (NULL);
 	return (word_arr);
 }
 
