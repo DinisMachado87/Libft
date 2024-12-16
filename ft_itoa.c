@@ -6,13 +6,13 @@
 /*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:43:20 by dimachad          #+#    #+#             */
-/*   Updated: 2024/12/13 15:43:24 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/12/16 14:24:57 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t num_len(long n)
+static size_t	num_len(long n)
 {
 	size_t	n_len;
 
@@ -45,7 +45,7 @@ static void	rec_itoa(long num, size_t n_len, char *str_result)
 	else
 	{
 		str_result[n_len] = num + '0';
-		return;
+		return ;
 	}
 }
 

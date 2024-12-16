@@ -6,13 +6,13 @@
 /*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 19:30:40 by dimachad          #+#    #+#             */
-/*   Updated: 2024/12/13 20:36:04 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/12/16 14:28:35 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void print_dig(int n, int fd)
+static void	print_dig(int n, int fd)
 {
 	char	chr;
 

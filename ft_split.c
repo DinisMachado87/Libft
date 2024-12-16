@@ -6,7 +6,7 @@
 /*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 23:23:05 by dimachad          #+#    #+#             */
-/*   Updated: 2024/12/05 02:59:13 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/12/16 14:32:15 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,6 @@ char	**ft_split(const char *str, char splitter)
 	size_t	arr_size;
 	size_t	i_arr;
 
-	if (!str)
-		return (NULL);
 	arr_size = count_words(str, splitter);
 	word_arr = (char **)malloc((arr_size + 1) * sizeof(char *));
 	if (!word_arr)
@@ -82,9 +80,7 @@ char	**ft_split(const char *str, char splitter)
 		{
 			word_arr[i_arr] = extract_word(str, splitter);
 			if (!word_arr[i_arr])
-			{
 				free_word_arr(word_arr, i_arr);
-			}
 		}
 		i_arr++;
 		while (*str && *str != splitter)

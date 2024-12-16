@@ -6,14 +6,14 @@
 /*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 20:29:44 by dimachad          #+#    #+#             */
-/*   Updated: 2024/11/28 22:47:26 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/12/16 14:22:58 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *nptr)
 {
 	int	minus;
-	int result;
+	int	result;
 
 	minus = 1;
 	result = 0;

@@ -6,7 +6,7 @@
 /*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 20:28:46 by dimachad          #+#    #+#             */
-/*   Updated: 2024/12/04 21:07:44 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/12/16 14:26:17 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*newstr;
 	size_t	i_str;
-	
+
 	i_str = 0;
 	newstr = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (!newstr)

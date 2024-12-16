@@ -6,7 +6,7 @@
 /*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 16:16:11 by dimachad          #+#    #+#             */
-/*   Updated: 2024/12/13 19:19:46 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/12/16 14:30:27 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ char	*ft_strrchr(const char *s, int c)
 	while (s[str_len] != (char)c && str_len >= 0)
 		str_len--;
 	if ((char)c == s[str_len])
-		return (char *)&s[str_len];
+		return ((char *)&s[str_len]);
 	return (NULL);
 }

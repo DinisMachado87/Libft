@@ -6,13 +6,13 @@
 /*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 22:55:35 by dimachad          #+#    #+#             */
-/*   Updated: 2024/12/02 23:28:44 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/12/16 14:18:25 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strdup(const char *s)
+char	*ft_strdup(const char *s)
 {
 	char	*str;
 	size_t	i_s;
