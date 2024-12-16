@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: dimachad <dimachad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 23:23:05 by dimachad          #+#    #+#             */
-/*   Updated: 2024/12/16 16:33:19 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/12/16 18:54:43 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static void	free_word_arr(char **word_arr, size_t i_arr)
 	free(word_arr);
 }
 
-int	build_word_array(
+static int	build_word_array(
 	const char *str, size_t arr_size, char splitter, char **word_arr)
 {
 	size_t	i_arr;
@@ -101,14 +101,3 @@ char	**ft_split(const char *str, char splitter)
 		return (NULL);
 	return (word_arr);
 }
-
-/*
-#include <stdio.h>
-
-int		main()
-{
-	printf("count_words: %zu\n", count_words("sddjlkksdflsdkdjlsd", 'k'));
-	printf("extract_word: %s\n", extract_word("sddjlkksdflsdkdjlsd", 'k'));
-	return (0);
-}
-*/

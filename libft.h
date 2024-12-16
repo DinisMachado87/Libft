@@ -3,20 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: dimachad <dimachad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 17:51:39 by dimachad          #+#    #+#             */
-/*   Updated: 2024/12/13 20:37:39 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/12/16 18:53:35 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
-# include <stddef.h>
-# include <ctype.h>
-# include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
 

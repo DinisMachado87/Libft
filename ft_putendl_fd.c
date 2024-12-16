@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: dimachad <dimachad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 18:25:45 by dimachad          #+#    #+#             */
-/*   Updated: 2024/12/13 19:30:13 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/12/16 18:54:43 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,3 @@ void	ft_putendl_fd(char *s, int fd)
 	}
 	write(fd, "\n", 1);
 }
-/*
-int	main()
-{
-	ft_putstr_fd("A rose has teeth in the mouth of a beast", 1);
-	return (0);
-}
-*/

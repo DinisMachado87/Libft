@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: dimachad <dimachad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:43:08 by dimachad          #+#    #+#             */
-/*   Updated: 2024/12/16 14:29:23 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/12/16 18:55:04 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	new_str[i_str] = '\0';
 	return (new_str);
 }
-/*
-int	main()
-{
-	ft_strmapi(NULL, NULL);
-	return (0);
-}
-*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: dimachad <dimachad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 19:30:40 by dimachad          #+#    #+#             */
-/*   Updated: 2024/12/16 14:28:35 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/12/16 18:54:43 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,23 +40,3 @@ void	ft_putnbr_fd(int n, int fd)
 		print_dig(n % 10, fd);
 	}
 }
-
-/*
-int		main()
-{
-	printf("ft_putnr_fd");
-	printf("\n");
-	ft_putnbr_fd(9, 1);
-	printf("\n");
-	ft_putnbr_fd(-9, 1);
-	printf("\n");
-	ft_putnbr_fd(0, 1);
-	printf("\n");
-	ft_putnbr_fd(-0, 1);
-	printf("\n");
-	ft_putnbr_fd(2147483647, 1);
-	printf("\n");
-	ft_putnbr_fd(-2147483648, 1);
-	printf("\n");
-}
-*/

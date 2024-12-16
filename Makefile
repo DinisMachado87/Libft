@@ -6,12 +6,11 @@
 #    By: dimachad <dimachad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 20:55:36 by dimachad          #+#    #+#              #
-#    Updated: 2024/12/13 20:37:03 by dimachad         ###   ########.fr        #
+#    Updated: 2024/12/16 18:23:24 by dimachad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.c \
-    ft_isprint.c \
+SRC = ft_isprint.c \
     ft_strlen.c \
     ft_bzero.c \
     ft_memcpy.c \
@@ -75,4 +74,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-

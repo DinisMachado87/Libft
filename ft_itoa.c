@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dimachad <dimachad@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: dimachad <dimachad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:43:20 by dimachad          #+#    #+#             */
-/*   Updated: 2024/12/16 14:24:57 by dimachad         ###   ########.fr       */
+/*   Updated: 2024/12/16 18:54:43 by dimachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,20 +62,3 @@ char	*ft_itoa(int n)
 	rec_itoa((long)n, n_len - 1, str_result);
 	return (str_result);
 }
-
-/*
-#include <stdio.h>
-
-int	main()
-{
-	printf("n_len\n");
-	printf("%zu\n", num_len(0));
-	printf("%zu\n", num_len(-223412));
-	printf("%zu\n", num_len(983744652));
-	printf("ft_itoa\n");
-	printf("%s\n", ft_itoa(0));
-	printf("%s\n", ft_itoa(-223412));
-	printf("%s\n", ft_itoa(983744652));
-	return (0);
-}
-*/
